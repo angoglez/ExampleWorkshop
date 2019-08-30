@@ -2,6 +2,6 @@ package BankApplication.models
 
 sealed trait BankError
 
-//TODO: modelar los distintos tipos de errores
+//TODO: we should model each needed error type
 
-final case class ErrorType1(message: String) extends BankError
+final case class PinNotFound(message: String) extends BankError
