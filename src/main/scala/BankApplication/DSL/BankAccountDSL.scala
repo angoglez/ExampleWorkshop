@@ -1,23 +1,22 @@
 package BankApplication.DSL
 
 import BankApplication.DSL.implementations.{BankAccountDB, BankAccountMemory}
-import BankApplication.models.BankError
-import BankApplication.models.models.BankAccount
+import BankApplication.models.models._
 
 trait BankAccountDSL[F[_]] {
 
   def createBankAccount(name: String,
-                        pinCode: String,
-                        clientId: Long): F[Option[BankAccount]]
+                        pinCode: PinCode,
+                        clientId: ClientId): F[Option[BankAccount]]
 
-  def getBalance(accountId: Long, pinCode: String): F[Option[Double]]
+  def getBalance(accountId: AccountId, pinCode: PinCode): F[Option[Double]]
 
-  def makeDeposit(accountId: Long, ammount: Double): F[Option[Double]]
+  def makeDeposit(accountId: AccountId, ammount: Double): F[Option[Double]]
 
-  def makeWithdraw(accountId: Long, ammount: Double):F[Option[Double]]
+  def makeWithdraw(accountId: AccountId, ammount: Double):F[Option[Double]]
 
-  def makeTransfer(accountIdSource: Long,
-                   accountIdDestination: Long,
+  def makeTransfer(source: AccountId,
+                   destination: AccountId,
                    ammount: Double): F[Option[Double]]
 
 }
