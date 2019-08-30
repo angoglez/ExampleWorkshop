@@ -10,6 +10,15 @@ val console4castsVersion = "0.8.0-M1"
 val logbackClassic = "1.2.3"
 val catseffectVersion = "1.2.0"
 val scalatestVersion = "3.0.6"
+val betterMonadicFor = "0.3.1"
+
+
+
+lazy val logSettings: Seq[ModuleID] = Seq(
+  "ch.qos.logback" % "logback-classic" % logbackClassic,
+  "io.chrisdavenport" %% "log4cats-core" % log4catsVersion,
+  "io.chrisdavenport" %% "log4cats-slf4j" % log4catsVersion
+)
 
 
 libraryDependencies ++= Seq(
@@ -19,11 +28,6 @@ libraryDependencies ++= Seq(
 
 ) ++ logSettings
 
-lazy val logSettings: Seq[ModuleID] = Seq(
-  "ch.qos.logback" % "logback-classic" % logbackClassic,
-  "io.chrisdavenport" %% "log4cats-core" % log4catsVersion,
-  "io.chrisdavenport" %% "log4cats-slf4j" % log4catsVersion
-)
 
 
-addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
+addCompilerPlugin("com.olegpy" %% "better-monadic-for" % betterMonadicFor)
